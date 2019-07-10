@@ -1,4 +1,4 @@
-name := "spark-nightly"
+name := "aggratings"
 
 version :="1.0"
 
