@@ -1,0 +1,11 @@
+.*.sw*
+target
+project/target
+spark-warehouse
+logs/*.log
+logs/*.log.*
+*.log
+*.log.error
+*.pid
+metastore_db
+*.csv
