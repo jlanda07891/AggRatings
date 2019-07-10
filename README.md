@@ -46,6 +46,20 @@ Then run the spark-app with spark-submit and specify the name of the csv file as
 
 # Structure
 
+## Application
+
+The object AggRatingsExporter (./src/main/scala/aggratings.scala) inherits from SparkSessionWrapper trait. It contains the main logic of the app : 
+- load the csv into a dataframe,
+- assign a unique identifier to each userId and itemId
+- group the combinations of userId + itemId
+- calculate the date diff of each max-timestamp in order to apply penalty on ratings
+- export the data.
+
+The object Utils contains usefull objects with functions to manipulate variables such as dates and dataframes.
+
+When a class is extended with the SparkSessionWrapper we’ll have access to the session with the "spark" variable. Starting and stopping the SparkSession is expensive and the app will run faster if we only create one SparkSession.
+
+## Application
 ```
 jlanda@DESKTOP-0S8UHRQ:~/spark-2.4.3-bin-hadoop2.7/spark-2.4.3-bin-hadoop2.7/bin/AggRatings$ tree
 .
