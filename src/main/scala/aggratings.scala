@@ -3,16 +3,10 @@ import org.apache.spark.sql.types.{IntegerType, FloatType, DoubleType, StringTyp
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql
 
-object AggRatingsExporter {
+object AggRatingsExporter extends SparkSessionWrapper {
 
 	def main(args:Array[String]) = {
 		
-		val spark = SparkSession
-			.builder()
-			.master("local")
-			.appName("SimpleApp")
-			.getOrCreate
-
 		import spark.implicits._
 
 		val arglist = args.toList
